@@ -82,7 +82,7 @@ class Utility(private val channelName: String) {
 
         try {
             retriever.setDataSource(path)
-            bitmap = retriever.getFrameAtTime(position, MediaMetadataRetriever.OPTION_CLOSEST_SYNC)
+            bitmap = retriever.getFrameAtTime(position, MediaMetadataRetriever.OPTION_CLOSEST)
         } catch (ex: IllegalArgumentException) {
             result.error(channelName, "Assume this is a corrupt video file", null)
         } catch (ex: RuntimeException) {
@@ -95,7 +95,7 @@ class Utility(private val channelName: String) {
             }
         }
 
-        if (bitmap == null) result.success(emptyArray<Int>())
+        if (bitmap == null) throw IllegalStateException("Failed to extract bitmap from video")
 
         val width = bitmap!!.width
         val height = bitmap.height
