@@ -1,3 +1,7 @@
+## 3.2.1
+
+- Added requestedTimeToleranceBefore and requestedTimeToleranceAfter to getThumbnail on iOS
+
 ## 3.2.0
 
 - Add support for png thumbnail on iOS (set quality to 1)
