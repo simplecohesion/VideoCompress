@@ -14,7 +14,14 @@ class ThumbnailUtility(channelName: String) {
         val bmp = utility.getBitmap(path, position, result)
 
         val stream = ByteArrayOutputStream()
-        bmp.compress(Bitmap.CompressFormat.JPEG, quality, stream)
+
+        // if the quality is 1 return a png, otherwise return a jpeg  
+        if (quality == 1) {
+            bmp.compress(Bitmap.CompressFormat.PNG, quality, stream)
+        } else {
+            bmp.compress(Bitmap.CompressFormat.JPEG, quality, stream)
+        }
+
         val byteArray = stream.toByteArray()
         bmp.recycle()
         result.success(byteArray.toList().toByteArray())

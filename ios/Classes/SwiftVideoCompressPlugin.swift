@@ -70,6 +70,11 @@ public class SwiftVideoCompressPlugin: NSObject, FlutterPlugin {
             return nil
         }
         let thumbnail = UIImage(cgImage: img)
+
+        // if the quality is 1 return a png, otherwise return a jpeg  
+        if quality.intValue == 1 {
+            return thumbnail.pngData()
+        }
         let compressionQuality = CGFloat(0.01 * Double(truncating: quality))
         return thumbnail.jpegData(compressionQuality: compressionQuality)
     }

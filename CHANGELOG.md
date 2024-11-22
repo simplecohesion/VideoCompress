@@ -1,4 +1,10 @@
+## 3.2.0
+
+- Add support for png thumbnail on iOS (set quality to 1)
+- Add support for png thumbnail on Android (set quality to 1)
+
 ## 3.1.5
+
 - Fix getThumbnail position being supplied in milliseconds, but used as microseconds in Android and seconds in iOS
 
 ## 3.1.4
